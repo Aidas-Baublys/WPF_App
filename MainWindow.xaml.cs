@@ -15,26 +15,26 @@ using System.Windows.Shapes;
 
 namespace WPF_App
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
+        }
 
-            Grid grid = new Grid();
-            this.Content = grid;
-            Button btn = new Button();
-            btn.FontSize = 26;
-            WrapPanel wp = new WrapPanel();
-            TextBlock tb = new TextBlock();
-            tb.Text = "Kurw";
-            tb.Foreground = Brushes.Blue;
-            wp.Children.Add(tb);
-            btn.Content = wp;
-            grid.Children.Add(btn);
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Nice click, bro.", "Click message");
+        }
+
+        private void Button_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Well done!");
+        }
+
+        private void Button_PreviewMouseUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Amazing..."); 
         }
     }
 }
