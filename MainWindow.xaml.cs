@@ -21,28 +21,5 @@ namespace WPF_App
         {
             InitializeComponent();
         }
-
-        private void Topings_Checked(object sender, RoutedEventArgs e)
-        {
-            bool newVal = (Topings.IsChecked == true);
-            Salami.IsChecked = newVal;
-            Mushrooms.IsChecked = newVal;
-            Mozzarella.IsChecked = newVal;
-        }
-
-        private void One_Toping_Checked(object sender, RoutedEventArgs e)
-        {
-            Topings.IsChecked = null;
-
-            if (Salami.IsChecked == true && Mushrooms.IsChecked == true && Mozzarella.IsChecked == true)
-            {
-                Topings.IsChecked = true;
-            }
-
-            if (Salami.IsChecked == false && Mushrooms.IsChecked == false && Mozzarella.IsChecked == false)
-            {
-                Topings.IsChecked = false;
-            }
-        }
     }
 }

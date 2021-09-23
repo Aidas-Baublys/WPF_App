@@ -5,42 +5,70 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_App"
         mc:Ignorable="d"
+        Background="Gray"
         Title="Sports NX" Height="450" Width="800">
-    <StackPanel Margin="10">
-        <Label FontWeight="Bold">Pizza Topings</Label>
-        <CheckBox Name="Topings" IsThreeState="True" Checked="Topings_Checked" Unchecked="Topings_Checked">Add All</CheckBox>
-        <StackPanel Margin="7">
-            <CheckBox Name="Salami" Checked="One_Toping_Checked" Unchecked="One_Toping_Checked">
-                <TextBlock>
-                    Salami <Run Foreground="Red" FontWeight="Bold">spicy</Run>
+    <StackPanel>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Labukasas!" FontSize="32">
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Foreground" Value="Green"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Foreground" Value="Red"/>
+                                <Setter Property="TextDecorations" Value="Underline"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Turbo!" FontSize="24" Grid.Row="1">
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Style.Triggers>
+                            <EventTrigger RoutedEvent="MouseEnter">
+                                <EventTrigger.Actions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Duration="0:0:1" Storyboard.TargetProperty="FontSize" To="72"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger.Actions>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="MouseLeave">
+                                <EventTrigger.Actions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Duration="0:0:1" Storyboard.TargetProperty="FontSize" To="24"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger.Actions>
+                            </EventTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2">
+                <CheckBox Name="Zdarova" Margin="10" FontSize="24">Are you there?</CheckBox>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Text" Value="No."/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=Zdarova, Path=IsChecked}" Value="True">
+                                    <Setter Property="Text" Value="YES!"/>
+                                    <Setter Property="Background" Value="Aquamarine"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
                 </TextBlock>
-            </CheckBox>
-            <CheckBox Name="Mushrooms" Checked="One_Toping_Checked" Unchecked="One_Toping_Checked">
-                Mushrooms
-            </CheckBox>
-            <CheckBox Name="Mozzarella" Checked="One_Toping_Checked" Unchecked="One_Toping_Checked">
-                Mozzarella
-            </CheckBox>
-        </StackPanel>
-        <Button Width="100" ToolTip="What, nx?">Baton</Button>
-        <Label FontWeight="Bold" FontSize="40">Do you like my cock?</Label>
-        <RadioButton Margin="10">
-            <WrapPanel>
-                <Rectangle Fill="Green" Width="16" Height="16"/>
-                <TextBlock Margin="5,0,0,0">Yes</TextBlock>
-            </WrapPanel>
-        </RadioButton>
-        <RadioButton Margin="10">
-            <WrapPanel>
-                <Rectangle Fill="Red" Width="16" Height="16"/>
-                <TextBlock Margin="5,0,0,0">Yes</TextBlock>
-            </WrapPanel>
-        </RadioButton>
-        <RadioButton Margin="10">
-            <WrapPanel>
-                <Image Source="https://media.istockphoto.com/photos/the-star-of-david-in-a-stone-picture-id1203145851?s=612x612" Width="16" Height="16"/>
-                <TextBlock Margin="5,0,0,0">Fuck me now!!!</TextBlock>
-            </WrapPanel>
-        </RadioButton>
+            </StackPanel>
+        </Grid>
     </StackPanel>
 </Window>
