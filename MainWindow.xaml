@@ -7,15 +7,20 @@
         mc:Ignorable="d"
         Title="Sports NX" Height="450" Width="800">
     <StackPanel>
-        <ComboBox Name="ColorBox">
-            <ComboBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <Rectangle Fill="{Binding Name}" Width="32" Height="32" Margin="5"/>
-                        <TextBlock Text="{Binding Name}" FontSize="32"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ComboBox.ItemTemplate>
-        </ComboBox>
+        <Label FontWeight="Bold">Pizza Topings</Label>
+        <CheckBox Name="Topings" IsThreeState="True" Checked="Topings_Checked" Unchecked="Topings_Checked">Add All</CheckBox>
+        <StackPanel Margin="7">
+            <CheckBox Name="Salami" Checked="One_Toping_Checked" Unchecked="One_Toping_Checked">
+                <TextBlock>
+                    Salami <Run Foreground="Red" FontWeight="Bold">spicy</Run>
+                </TextBlock>
+            </CheckBox>
+            <CheckBox Name="Mushrooms" Checked="One_Toping_Checked" Unchecked="One_Toping_Checked">
+                Mushrooms
+            </CheckBox>
+            <CheckBox Name="Mozzarella" Checked="One_Toping_Checked" Unchecked="One_Toping_Checked">
+                Mozzarella
+            </CheckBox>
+        </StackPanel>
     </StackPanel>
 </Window>
