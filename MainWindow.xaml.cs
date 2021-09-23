@@ -15,31 +15,40 @@ using System.Windows.Shapes;
 
 namespace WPF_App
 {
+    public class Match
+    {
+        public int Score1 { get; set; }
+        public int Score2 { get; set; }
+        public string Team1 { get; set; }
+        public string Team2 { get; set; }
+        public int Completion { get; set; }
+    }
+
     public partial class MainWindow : Window
     {
-        public Sum SumObj { get; set; }
-
         public MainWindow()
         {
             InitializeComponent();
 
-            SumObj = new Sum { Num1 = "1", Num2 = "3" };
-            this.DataContext = SumObj;
+            List<Match> matches = new List<Match>();
+            matches.Add(new Match() { Team1 = "Duchai", Team2 = "Pydarai", Score1 = 4, Score2 = 4, Completion = 85 });
+            matches.Add(new Match() { Team1 = "Pizdos", Team2 = "Sukos", Score1 = 0, Score2 = 2, Completion = 15 });
+            matches.Add(new Match() { Team1 = "Kiausai", Team2 = "Bybiai", Score1 = 6, Score2 = 10, Completion = 50 });
+            matches.Add(new Match() { Team1 = "Lochai", Team2 = "Daunai", Score1 = 2, Score2 = 4, Completion = 3 });
+            matches.Add(new Match() { Team1 = "Pedikai", Team2 = "Kurwos", Score1 = 1, Score2 = 5, Completion = 98 });
+
+            Matches.ItemsSource = matches;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Show_me(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Nice click, bro.", "Click message");
-        }
-
-        private void Button_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            MessageBox.Show("Well done!");
-        }
-
-        private void Button_PreviewMouseUp(object sender, MouseButtonEventArgs e)
-        {
-            MessageBox.Show("Amazing...");
+            if (Matches.SelectedItem != null)
+            {
+                MessageBox.Show("Here you go: " +
+                    $"{(Matches.SelectedItem as Match).Team1} {(Matches.SelectedItem as Match).Score1}" +
+                    $" : {(Matches.SelectedItem as Match).Score2} {(Matches.SelectedItem as Match).Team2}",
+                    "Selected match");
+            }
         }
     }
 }
