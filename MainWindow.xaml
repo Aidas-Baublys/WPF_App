@@ -70,5 +70,12 @@
                 </TextBlock>
             </StackPanel>
         </Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label FontSize="32">Username</Label>
+            <TextBox Name="Username" Height="32"/>
+            <Label FontSize="32">Password</Label>
+            <PasswordBox Name="Password" Height="32"/>
+            <Button Margin="7" FontSize="24" Click="Button_Click">Log in</Button>
+        </StackPanel>
     </StackPanel>
 </Window>
