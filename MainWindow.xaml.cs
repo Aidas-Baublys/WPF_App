@@ -17,11 +17,14 @@ namespace WPF_App
 {
     public partial class MainWindow : Window
     {
+        public Sum SumObj { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
-            Slider.Value = 30;
-            TextBox.Text = Slider.Value.ToString();
+
+            SumObj = new Sum { Num1 = "1", Num2 = "3" };
+            this.DataContext = SumObj;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -36,7 +39,7 @@ namespace WPF_App
 
         private void Button_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Amazing..."); 
+            MessageBox.Show("Amazing...");
         }
     }
 }
