@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WPF_App"
         mc:Ignorable="d"
         Title="Sports NX" Height="450" Width="800">
-    <StackPanel>
+    <StackPanel Margin="10">
         <Label FontWeight="Bold">Pizza Topings</Label>
         <CheckBox Name="Topings" IsThreeState="True" Checked="Topings_Checked" Unchecked="Topings_Checked">Add All</CheckBox>
         <StackPanel Margin="7">
@@ -22,5 +22,25 @@
                 Mozzarella
             </CheckBox>
         </StackPanel>
+        <Button Width="100" ToolTip="What, nx?">Baton</Button>
+        <Label FontWeight="Bold" FontSize="40">Do you like my cock?</Label>
+        <RadioButton Margin="10">
+            <WrapPanel>
+                <Rectangle Fill="Green" Width="16" Height="16"/>
+                <TextBlock Margin="5,0,0,0">Yes</TextBlock>
+            </WrapPanel>
+        </RadioButton>
+        <RadioButton Margin="10">
+            <WrapPanel>
+                <Rectangle Fill="Red" Width="16" Height="16"/>
+                <TextBlock Margin="5,0,0,0">Yes</TextBlock>
+            </WrapPanel>
+        </RadioButton>
+        <RadioButton Margin="10">
+            <WrapPanel>
+                <Image Source="https://media.istockphoto.com/photos/the-star-of-david-in-a-stone-picture-id1203145851?s=612x612" Width="16" Height="16"/>
+                <TextBlock Margin="5,0,0,0">Fuck me now!!!</TextBlock>
+            </WrapPanel>
+        </RadioButton>
     </StackPanel>
 </Window>
