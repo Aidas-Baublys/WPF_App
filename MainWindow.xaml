@@ -6,33 +6,16 @@
         xmlns:local="clr-namespace:WPF_App"
         mc:Ignorable="d"
         Title="Sports NX" Height="450" Width="800">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="100"/>
-        </Grid.ColumnDefinitions>
-        <ListBox Name="Matches" HorizontalContentAlignment="Stretch">
-            <ListBox.ItemTemplate>
+    <StackPanel>
+        <ComboBox Name="ColorBox">
+            <ComboBox.ItemTemplate>
                 <DataTemplate>
-                    <Grid Margin="2">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Text="{Binding Team1}"/>
-                        <TextBlock Grid.Column="1" Text="{Binding Score1}"/>
-                        <TextBlock Grid.Column="2" Text=":"/>
-                        <TextBlock Grid.Column="3" Text="{Binding Score2}"/>
-                        <TextBlock Grid.Column="4" Text="{Binding Team2}"/>
-                        <ProgressBar Grid.Column="5" Minimum="0" Maximum="100" Value="{Binding Completion}"/>
-                    </Grid>
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle Fill="{Binding Name}" Width="32" Height="32" Margin="5"/>
+                        <TextBlock Text="{Binding Name}" FontSize="32"/>
+                    </StackPanel>
                 </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <Button Grid.Column="1" Click="Show_me">Show me!</Button>
-    </Grid>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+    </StackPanel>
 </Window>
