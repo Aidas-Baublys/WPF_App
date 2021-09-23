@@ -20,6 +20,8 @@ namespace WPF_App
         public MainWindow()
         {
             InitializeComponent();
+            Slider.Value = 30;
+            TextBox.Text = Slider.Value.ToString();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
